@@ -11,6 +11,9 @@ const Step = 0.01
 func ParseFile(file string, params map[string]int) error {
     view := []float64{0,0,1,0}
     stack := MakeWorldStack()
+    //get some basics out of the way, lets make sure that /img dir exists
+    mkdir := exec.Command("mkdir","img")
+    mkdir.CombinedOutput()
     //pointer to the matrix
     cmd := exec.Command("python2","parse/main.py",file)
     out, err := cmd.CombinedOutput()
@@ -32,7 +35,7 @@ func ParseFile(file string, params map[string]int) error {
         case "save":
             args := GetNextArgs(scanner)
             GridToPPM("ayylmfao124.ppm")
-            c := exec.Command("convert","ayylmfao124.ppm",args[0]+args[1])
+            c := exec.Command("convert","ayylmfao124.ppm",args[0])
             c.Output()
             os.Remove("ayylmfao124.ppm")
             //commands:
@@ -145,6 +148,10 @@ func ParseFile(file string, params map[string]int) error {
             }
         case "":
 
+        case "clear":
+            stack = MakeWorldStack()
+            screen = MakeGrid(Width, Height)
+            FillGrid(255,255,255)
         default:
             if strings.Contains(c, "ERROR") {
                 fmt.Println(c)

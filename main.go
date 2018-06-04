@@ -28,13 +28,11 @@ func main() {
     worlds.GetWorld().PrintMatrix()
 	screen = MakeGrid(Width, Height)
     fmt.Println("MESSAGES THAT SAY ERROR IN FRONT OF THEM WERE COMPILER ERRORS, OTHER PRINTED COMMANDS ARE ONES THAT ARE INTERPRETED BY THE COMPILER BUT DO NOT DO MUCH OF ANYTHING YET")
-    FillGrid(255,255,255)
-    ParseFile("test.mdl",params)
     screen = MakeGrid(Width,Height)
     FillGrid(255,255,255)
     ParseFile("robot.mdl",params)
     screen = MakeGrid(Width,Height)
-    FillGrid(0,0,0)
-    ParseFile("script.mdl",params)
+    FillGrid(255,255,255)
+    ParseFile("dwscript.mdl",params)
 
 }
