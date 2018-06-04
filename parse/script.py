@@ -93,9 +93,8 @@ def run(filename):
         if frames > 1:
             name_arg = DIRNAME + basename + "*"
             name = basename+ ".gif"
-            f = fork()
-            if f == 0:
-                execlp('convert', 'convert', '-delay', '3', name_arg, name)
+            print "animate"
+            print  name_arg + " " + name
     else:
         print "Parsing failed."
         return

@@ -39,6 +39,10 @@ func ParseFile(file string, params map[string]int) error {
             c.Output()
             os.Remove("ayylmfao124.ppm")
             //commands:
+        case "animate":
+            args := GetNextArgs(scanner)
+            c := exec.Command("convert", "-delay", "3",args[0], args[1])
+            c.Output()
         case "line":
             edge := ZeroMatrix(4,0)
             args := FloatArgs(GetNextArgs(scanner))
