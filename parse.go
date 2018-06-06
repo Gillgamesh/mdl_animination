@@ -155,7 +155,7 @@ func ParseFile(file string, params map[string]int) error {
         case "clear":
             stack = MakeWorldStack()
             screen = MakeGrid(Width, Height)
-            FillGrid(255,255,255)
+            FillGrid(0,0,0)
         default:
             if strings.Contains(c, "ERROR") {
                 fmt.Println(c)
