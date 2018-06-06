@@ -20,7 +20,7 @@ func main() {
     ParseFile("dwscript.mdl",params)
     FillGrid(255,255,255)
     fmt.Println("Done")
-    ParseFile("script1.mdl",params)
+    ParseFile("script.mdl",params)
     fmt.Println("Done")
 
 }
